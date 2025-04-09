@@ -43,7 +43,7 @@ document.addEventListener('keydown', function (e) {
 //BUTTON SCROLLING
 btnScroll.addEventListener('click', function (e) {
   const s1coords = section1.getBoundingClientRect();
-  console.log(s1coords);
+  // console.log(s1coords);
   // console.log(e.target.getBoundingClientRect());
 
   // console.log('Current scroll (X/Y)', window.pageXOffset, pageYOffset);
@@ -86,7 +86,10 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
   e.preventDefault();
 
   //Matching strategy
-  if (e.target.classList.contains('nav__link')) {
+  if (
+    e.target.classList.contains('nav__link') &&
+    !e.target.classList.contains('nav__link--btn')
+  ) {
     const id = e.target.getAttribute('href');
     document.querySelector(id).scrollIntoView({
       behavior: 'smooth',
@@ -104,7 +107,7 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
 
 tabsContainer.addEventListener('click', function (e) {
   const clicked = e.target.closest('.operations__tab');
-  console.log(clicked);
+  // console.log(clicked);
 
   //GUARD CLAUSE
   if (!clicked) return;
@@ -134,7 +137,7 @@ const handleHover = function (e) {
       if (el !== link) el.style.opacity = this;
     });
     logo.style.opacity = this;
-    console.log('ad');
+    // console.log('ad');
   }
 };
 
